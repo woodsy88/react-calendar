@@ -1,0 +1,10 @@
+<div class="container"><% @appointments.each do |appt| %>
+
+  <div class="row">
+    <div class="card">
+       <h3><%= appt.title %></h3>
+      <p><%= appt.appointment_time %></p>
+    </div>
+  </div>
+
+  <% end %></div>
