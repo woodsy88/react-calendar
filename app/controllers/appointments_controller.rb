@@ -8,12 +8,11 @@ before_action :set_appointment, only: [:show]
 
 
   def create
-    @appointment = Appointment.create(appointment_params)
-
+    @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to @appointment
+      render json: @appointment
     else
-      render :new
+      render json: @appointment.errors, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +22,7 @@ before_action :set_appointment, only: [:show]
   private
 
   def appointment_params
-    params.require(:appointment).permit(:title, :date)
+    params.require(:appointment).permit(:title, :appointment_time)
   end
 
   def set_appointment

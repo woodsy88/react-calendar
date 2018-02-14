@@ -1,10 +1,10 @@
-var Appointment = React.createClass({
-  render: function() {
+const Appointment = ({appointment}) =>  {
+
     return (
-      <div>
-        <h3>{this.props.appointment.title}</h3>
-        <p>{this.props.appointment.appointment_time}</p>
+      <div className='appointment card'>
+        <h3>{appointment.title}</h3>
+        <p>{formatDate(appointment.appointment_time)}</p>
       </div>
-    )
-  }
-});
+      )
+
+}
